@@ -14,10 +14,10 @@ function generatePassword(){
   
 console.log(length);
   //prompt user to include ("ok") or exclude ("cancel") certain characters in password, store boolean value in variables
-  includeLowerCase = confirm("Include lowercase alphabet?");
+  includeLowercase = confirm("Include lowercase alphabet?");
   console.log(includeLowercase);
-  includeUpperCase = confirm("Include uppercase alphabet?");
-  console.log(includeUppercase)
+  includeUppercase = confirm("Include uppercase alphabet?");
+  console.log(includeUppercase);
   includeNumbers = confirm("Include numbers?");
   console.log(includeNumbers);
   includeSymbols = confirm("Include symbols?");
@@ -46,21 +46,21 @@ but the characters are already in the charset if we know the keys, in this assig
 */
 
 function getRandomUppercase(){
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
+    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
 /*works the same was as above method, except when generating the random numbers we add 97 instead of 65 because we 
 want a random number between [97, 122] which we will use to return the charset characters 97-122 which in UTF-8 is the lowercase alphabet.
 */
 function getRandomLowercase() {
-  return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 97);
 }
 
 /*This time we mulitply be 10 instead of 26 because we only want random numbers in a range of 10, this time adding 48 to
 give us a random number between [48, 57]
 */
 function getRandomNumber() {
-  return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
+  return String.fromCharCode(Math.floor(Math.random() * 10) + 48);
 }
 
 /* This time all the symbols we wanted to use in our password didn't line up neatly in the UTF-8 code,
@@ -94,3 +94,4 @@ console.log(getRandomUppercase());
 console.log(getRandomLowercase());
 console.log(getRandomNumber());
 console.log(getRandomSymbol());
+
