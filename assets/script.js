@@ -41,8 +41,7 @@ The fromCharCode method is a method of the String class that takes an integer as
 in this case we are using UTF-8. The integer we pass as a parameter to the String.fromCharCode is a random number between [65, 90]. 
 We got the random integer between [65 ,90] by using a standard random number algorithm. I saw this method in a tutorial and
 it did exactly what I was planning on doing to execute the task much more elegantly. I was going to create a new Array of characters and then use the index, 
-but the characters are already in the charset if we know the keys, in this assignment we designated UTF-8 in the HTML file. 
- We already have characters stored in charset, we just need to know the keys.
+but the characters are already in the charset if we know the keys, in this assignment we designated UTF-8 in the HTML file.
 */
 
 function getRandomUppercase(){
@@ -73,6 +72,13 @@ function getRandomSymbol() {
   var symbolString = "!#$%&()*+,-./:;<=>?@[\]^_{|}~";
   return symbolString[(Math.floor(Math.random() * symbolString.length))];
 }
+
+function getRandomCharacter() {
+  var allChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[\]^_{|}~";
+  return symbolString[(Math.floor(Math.random() * allChars.length))];
+}
+  
+
 
 
 
