@@ -45,36 +45,36 @@ but the characters are already in the charset if we know the keys, in this assig
  We already have characters stored in charset, we just need to know the keys.
 */
 
-getRandomUppercase() {
+function getRandomUppercase(){
     return String.fromCharCode(Math.floor(Math.random() * 26) + 65)
 }
 
 /*works the same was as above method, except when generating the random numbers we add 97 instead of 65 because we 
 want a random number between [97, 122] which we will use to return the charset characters 97-122 which in UTF-8 is the lowercase alphabet.
 */
-getRandomLowercase() {
+function getRandomLowercase() {
   return String.fromCharCode(Math.floor(Math.random() * 26) + 97)
 }
 
 /*This time we mulitply be 10 instead of 26 because we only want random numbers in a range of 10, this time adding 48 to
 give us a random number between [48, 57]
 */
-getRandomNumber() {
+function getRandomNumber() {
   return String.fromCharCode(Math.floor(Math.random() * 10) + 48)
 }
 
 /* This time all the symbols we wanted to use in our password didn't line up neatly in the UTF-8 code,
 I could have used String.fromCharCode(Math.floor(Math.random() * 15) + 33) to give me some of them, or made a slightly
-more complex method to give me a random character from two different ranges of the charset, but this solution was easier. 
+more complex method to give me a random characters from two different ranges of the charset, but this solution was easier. 
 
 
 */
-getRandomSymbol() {
+function getRandomSymbol() {
   var symbolString = "!#$%&()*+,-./:;<=>?@[\]^_{|}~";
-  return symbolString[(Math.floor(Math.random() * symbolString.length)];
+  return symbolString[(Math.floor(Math.random() * symbolString.length))];
 }
 
-" !"#$%&'()*+,-./:;<=>?@[\]^_`{|}~"
+
 
 // Write password to the #password input
 function writePassword() {
@@ -90,7 +90,7 @@ generateBtn.addEventListener("click", writePassword);
 
 
 console.log(length);
-console.log(includeLowerCase);
-console.log(includeUpperCase);
-console.log(includeNumbers);
-console.log(includeSymbols);
+console.log(getRandomUppercase());
+console.log(getRandomLowercase());
+console.log(getRandomNumber());
+console.log(getRandomSymbol());
