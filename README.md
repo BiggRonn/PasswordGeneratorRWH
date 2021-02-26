@@ -92,3 +92,7 @@ You are required to submit the following for review:
 
 - - -
 © 2021 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+
+
+*This is the charset used by the fromCharCode function* (We are using charset UTF-8)
+https://www.w3schools.com/html/html_charset.asp
