@@ -1,38 +1,52 @@
 // Assignment Code
 var generateBtn = document.querySelector("#generate");
 
-var length;
-var includeSymbols;
-var includeNumbers;
-var includeUppercase;
-var includeLowercase;
+var options = {
+  length: 0,
+
+  includeLowerCase: true,
+  includeUppercase: true,
+  
+  includeNumbers: true,
+  includeSymbols: true
+
+}
+
 
 function generatePassword(){
+passwordCriteria();
+//generate a prompt box and ask user for a password length, store in length variable **NEEDS TO RESTRICT INPUT TO GIVEN RANGE**
 
-  //generate a prompt box and ask user for a password length, store in length variable **NEEDS TO RESTRICT INPUT TO GIVEN RANGE**
-  length = prompt("How many characters in your password?", "Mininum: 8   Maximum: 129");
-  
-console.log(length);
-  //prompt user to include ("ok") or exclude ("cancel") certain characters in password, store boolean value in variables
-  includeLowercase = confirm("Include lowercase alphabet?");
-  console.log(includeLowercase);
-  includeUppercase = confirm("Include uppercase alphabet?");
-  console.log(includeUppercase);
-  includeNumbers = confirm("Include numbers?");
-  console.log(includeNumbers);
-  includeSymbols = confirm("Include symbols?");
-  console.log(includeSymbols);
-
-
-
-  return length;
+return options.length + options.includeLowerCase + options.includeUppercase + options.includeNumbers + options.includeSymbols;
 }
 
 //function to randomnly generate the password with the data provided
 function passwordMagic(howLong, hasLower, hasUpper, hasNumber, hasSymbol){
 
+length =+ 5;
 
+return options;
+}
 
+//This method is responsible to prompting the user for password criteria data and storing those results in our global variables.
+function passwordCriteria(){
+  
+    //generate a prompt box and ask user for a password length, store in length variable
+    options.length = prompt("How many characters in your password?", "Mininum: 8   Maximum: 129");
+      if (options.length < 8 || options.length > 128){
+        alert("Invalid Input, Enter # between 8-126 (inclusive).");
+        passwordCriteria();
+      }
+      
+      //prompt user to include ("ok") or exclude ("cancel") certain characters in password, store boolean value in variables
+    options.includeLowercase = confirm("Include lowercase alphabet?");
+    options.includeUppercase = confirm("Include uppercase alphabet?");
+    options.includeNumbers = confirm("Include numbers?");
+    options.includeSymbols = confirm("Include symbols?");
+  
+
+  return options;
+  
 }
 
 /*This method will return a random uppercase character.
@@ -95,9 +109,14 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-console.log(length);
+console.log(options.length);
 console.log(getRandomUppercase());
 console.log(getRandomLowercase());
 console.log(getRandomNumber());
 console.log(getRandomSymbol());
-
+console.log("SPASDKFP");
+console.log(options.length);
+console.log(options.includeLowercase);
+console.log(options.includeUppercase);
+console.log(options.includeNumbers);
+console.log(options.includeSymbols);
