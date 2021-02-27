@@ -17,15 +17,38 @@ function generatePassword(){
 passwordCriteria();
 //generate a prompt box and ask user for a password length, store in length variable **NEEDS TO RESTRICT INPUT TO GIVEN RANGE**
 
-return options.length + options.includeLowerCase + options.includeUppercase + options.includeNumbers + options.includeSymbols;
+return passwordMagic(options.length, options.hasLower, options.hasUpper, options.hasNumber, options.hasSymbol);
 }
 
 //function to randomnly generate the password with the data provided
 function passwordMagic(howLong, hasLower, hasUpper, hasNumber, hasSymbol){
+  
+  var createdPassword = "";
 
-length =+ 5;
+  if (hasLower){
+    createdPassword += getRandomLowercase();
+    howLong--;
+  }
 
-return options;
+  if (hasUpper){
+    createdPassword += getRandomLowercase();
+    howLong--;
+  }
+
+  if (hasNumber){
+    createdPassword += getRandomLowercase();
+    howLong--;
+  }
+
+  if (hasSymbol){
+    createdPassword += getRandomLowercase();
+    howLong--;
+  }
+
+
+
+
+return createdPassword;
 }
 
 //This method is responsible to prompting the user for password criteria data and storing those results in our global variables.
@@ -107,16 +130,3 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
-
-
-console.log(options.length);
-console.log(getRandomUppercase());
-console.log(getRandomLowercase());
-console.log(getRandomNumber());
-console.log(getRandomSymbol());
-console.log("SPASDKFP");
-console.log(options.length);
-console.log(options.includeLowercase);
-console.log(options.includeUppercase);
-console.log(options.includeNumbers);
-console.log(options.includeSymbols);
