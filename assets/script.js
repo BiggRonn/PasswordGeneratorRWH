@@ -14,10 +14,13 @@ var options = {
 
 
 function generatePassword(){
+  var retString;
 passwordCriteria();
 //generate a prompt box and ask user for a password length, store in length variable **NEEDS TO RESTRICT INPUT TO GIVEN RANGE**
 
-return passwordMagic(options.length, options.hasLower, options.hasUpper, options.hasNumber, options.hasSymbol);
+
+
+return retString;
 }
 
 //function to randomnly generate the password with the data provided
@@ -26,22 +29,22 @@ function passwordMagic(howLong, hasLower, hasUpper, hasNumber, hasSymbol){
   var createdPassword = "";
 
   if (hasLower){
-    createdPassword += getRandomLowercase();
+    createdPassword.concat(getRandomLowercase());
     howLong--;
   }
 
   if (hasUpper){
-    createdPassword += getRandomLowercase();
+    createdPassword.concat(getRandomLowercase());
     howLong--;
   }
 
   if (hasNumber){
-    createdPassword += getRandomLowercase();
+    createdPassword.concat(getRandomLowercase());
     howLong--;
   }
 
   if (hasSymbol){
-    createdPassword += getRandomLowercase();
+    createdPassword.concat(getRandomSymbol)
     howLong--;
   }
 
@@ -130,3 +133,6 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+
+console.log(passwordMagic(options.length, options.hasLower, options.hasUpper, options.hasNumber, options.hasSymbol));
