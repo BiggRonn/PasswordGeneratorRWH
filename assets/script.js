@@ -6,44 +6,45 @@ var options = {
 
   includeLowerCase: true,
   includeUppercase: true,
-  
+
   includeNumbers: true,
   includeSymbols: true
 
 }
 
 
-function generatePassword(){
-  var retString;
-passwordCriteria();
-//generate a prompt box and ask user for a password length, store in length variable **NEEDS TO RESTRICT INPUT TO GIVEN RANGE**
+function generatePassword() {
+  
+  passwordCriteria();
+  
 
 
 
-return retString;
+
+  return passwordMagic(options.length, options.includeLowerCase, options.includeUppercase, options.includeNumbers, options.includeSymbols);
 }
 
 //function to randomnly generate the password with the data provided
-function passwordMagic(howLong, hasLower, hasUpper, hasNumber, hasSymbol){
-  
+function passwordMagic(howLong, hasLower, hasUpper, hasNumber, hasSymbol) {
+
   var createdPassword = "";
 
-  if (hasLower){
+  if (hasLower) {
     createdPassword.concat(getRandomLowercase());
     howLong--;
   }
 
-  if (hasUpper){
+  if (hasUpper) {
     createdPassword.concat(getRandomLowercase());
     howLong--;
   }
 
-  if (hasNumber){
+  if (hasNumber) {
     createdPassword.concat(getRandomLowercase());
     howLong--;
   }
 
-  if (hasSymbol){
+  if (hasSymbol) {
     createdPassword.concat(getRandomSymbol)
     howLong--;
   }
@@ -51,28 +52,28 @@ function passwordMagic(howLong, hasLower, hasUpper, hasNumber, hasSymbol){
 
 
 
-return createdPassword;
+  return createdPassword;
 }
 
 //This method is responsible to prompting the user for password criteria data and storing those results in our global variables.
-function passwordCriteria(){
-  
-    //generate a prompt box and ask user for a password length, store in length variable
-    options.length = prompt("How many characters in your password?", "Mininum: 8   Maximum: 129");
-      if (options.length < 8 || options.length > 128){
-        alert("Invalid Input, Enter # between 8-126 (inclusive).");
-        passwordCriteria();
-      }
-      
-      //prompt user to include ("ok") or exclude ("cancel") certain characters in password, store boolean value in variables
-    options.includeLowercase = confirm("Include lowercase alphabet?");
-    options.includeUppercase = confirm("Include uppercase alphabet?");
-    options.includeNumbers = confirm("Include numbers?");
-    options.includeSymbols = confirm("Include symbols?");
-  
+function passwordCriteria() {
+
+  //generate a prompt box and ask user for a password length, store in length variable
+  options.length = prompt("How many characters in your password?", "Mininum: 8   Maximum: 129");
+  if (options.length < 8 || options.length > 128) {
+    alert("Invalid Input, Enter # between 8-126 (inclusive).");
+    passwordCriteria();
+  }
+
+  //prompt user to include ("ok") or exclude ("cancel") certain characters in password, store boolean value in variables
+  options.includeLowercase = confirm("Include lowercase alphabet?");
+  options.includeUppercase = confirm("Include uppercase alphabet?");
+  options.includeNumbers = confirm("Include numbers?");
+  options.includeSymbols = confirm("Include symbols?");
+
 
   return options;
-  
+
 }
 
 /*This method will return a random uppercase character.
@@ -84,8 +85,8 @@ it did exactly what I was planning on doing to execute the task much more elegan
 but the characters are already in the charset if we know the keys, in this assignment we designated UTF-8 in the HTML file.
 */
 
-function getRandomUppercase(){
-    return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
+function getRandomUppercase() {
+  return String.fromCharCode(Math.floor(Math.random() * 26) + 65);
 }
 
 /*works the same was as above method, except when generating the random numbers we add 97 instead of 65 because we 
@@ -117,7 +118,7 @@ function getRandomCharacter() {
   var allChars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789!#$%&()*+,-./:;<=>?@[\]^_{|}~";
   return symbolString[(Math.floor(Math.random() * allChars.length))];
 }
-  
+
 
 
 
@@ -135,4 +136,4 @@ function writePassword() {
 generateBtn.addEventListener("click", writePassword);
 
 
-console.log(passwordMagic(options.length, options.hasLower, options.hasUpper, options.hasNumber, options.hasSymbol));
+console.log(passwordMagic(options.length, options.includeLowerCase, options.includeUppercase, options.includeNumbers, options.includeSymbols));
