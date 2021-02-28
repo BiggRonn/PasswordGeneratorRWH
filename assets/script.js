@@ -49,7 +49,7 @@ function generatePassword(){
 
 
 
-  return pass;
+  return pass.slice(0, length);
 }
 
 function randSymbol(){
