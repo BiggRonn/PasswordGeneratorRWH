@@ -39,7 +39,7 @@ function generatePassword(){
     }
 
     if (hasSymbol){
-      pass += 
+      pass += randSymbol();
     }
 
   }
@@ -50,6 +50,11 @@ function generatePassword(){
 
 
   return pass;
+}
+
+function randSymbol(){
+  var symbolString = "!#$%&()*+,-./:;<=>?@[\]^_`{|}~";
+  return symbolString[Math.floor(Math.random() * symbolString.length)];
 }
 
 
