@@ -34,6 +34,14 @@ function generatePassword(){
       pass += String.fromCharCode(Math.floor(Math.random() * 26) + 65);
     }
 
+    if (hasNumber) {
+      pass += (Math.floor(Math.random() * 9));
+    }
+
+    if (hasSymbol){
+      pass += 
+    }
+
   }
 
 
@@ -44,19 +52,7 @@ function generatePassword(){
   return pass;
 }
 
-function passMagic(len, low, up, num, symb){
-  
-  var magicPassword;
 
-  for (i = 0; i< len; i++){
-    if (low){
-      magicPassword += String.fromCharCode(Math.floor(Math.random() * 26) + 97);
-    }
-
-  }
-
-  return magicPassword; 
-}
 
 function writePassword() {
   var password = generatePassword();
